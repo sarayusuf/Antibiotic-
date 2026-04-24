@@ -1,2 +1,2 @@
-# Antibiotic-
+# Antibiotics
 Summary 
