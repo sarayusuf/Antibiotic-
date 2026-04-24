@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antibiotic Reference – Microbiology Department</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600;700&display=swap');
+
+  :root {
+    --bg: #f4f6f9;
+    --surface: #ffffff;
+    --border: #d0d7e3;
+    --header-bg: #1a2540;
+    --header-text: #e8edf8;
+    --accent1: #2563eb;
+    --accent2: #16a34a;
+    --accent3: #dc2626;
+    --accent4: #d97706;
+    --accent5: #7c3aed;
+    --row-even: #f8fafc;
+    --row-hover: #ebf3ff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --tag-safe: #dcfce7;
+    --tag-safe-text: #166534;
+    --tag-caution: #fef9c3;
+    --tag-caution-text: #854d0e;
+    --tag-danger: #fee2e2;
+    --tag-danger-text: #991b1b;
+    --tag-na: #f1f5f9;
+    --tag-na-text: #475569;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 28px 40px 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-bottom: 4px solid var(--accent1);
+  }
+  .header-icon {
+    font-size: 40px;
+    line-height: 1;
+  }
+  header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  header p {
+    font-size: 12px;
+    color: #93a3be;
+    margin-top: 4px;
+  }
+
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 24px 32px 0;
+    padding: 18px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .toc span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+  .toc a {
+    color: var(--accent1);
+    text-decoration: none;
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .toc a:hover { background: var(--row-hover); }
+
+  .section {
+    margin: 28px 32px 0;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .section-title h2 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--header-bg);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .section-title .pill {
+    background: var(--accent1);
+    color: white;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .divider {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    min-width: 900px;
+  }
+
+  thead tr {
+    background: var(--header-bg);
+    color: var(--header-text);
+  }
+  thead th {
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  thead th:first-child { border-radius: 8px 0 0 0; }
+  thead th:last-child { border-right: none; border-radius: 0 8px 0 0; }
+
+  .sub-header {
+    background: #2f3f66;
+    color: #c9d5ee;
+    font-size: 10.5px;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 5px 12px;
+  }
+
+  tbody tr:nth-child(even) { background: var(--row-even); }
+  tbody tr:hover { background: var(--row-hover); }
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody td:last-child { border-right: none; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .drug-name {
+    font-weight: 700;
+    color: var(--header-bg);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+  .brand-name {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .gen-badge {
+    display: inline-block;
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    background: #e0e7ff;
+    color: #3730a3;
+    margin-bottom: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin: 1px;
+    white-space: nowrap;
+  }
+  .tag-safe   { background: var(--tag-safe);   color: var(--tag-safe-text); }
+  .tag-caution{ background: var(--tag-caution); color: var(--tag-caution-text); }
+  .tag-danger { background: var(--tag-danger);  color: var(--tag-danger-text); }
+  .tag-na     { background: var(--tag-na);      color: var(--tag-na-text); }
+  .tag-blue   { background: #dbeafe; color: #1e40af; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+
+  ul.compact {
+    padding-left: 14px;
+    margin: 0;
+  }
+  ul.compact li { margin-bottom: 2px; }
+
+  .note-box {
+    background: #fffbeb;
+    border-left: 4px solid var(--accent4);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin-top: 14px;
+    font-size: 11.5px;
+    color: #78350f;
+  }
+  .note-box strong { color: #92400e; }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 12px 0 0;
+    font-size: 11px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .legend-dot {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  footer {
+    margin: 32px 32px 24px;
+    font-size: 11px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+
+  @media print {
+    body { font-size: 10px; }
+    .section { margin: 14px 12px 0; }
+    .table-wrap { box-shadow: none; }
+    header { padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-icon">🦠</div>
+  <div>
+    <h1>Antibiotic Reference Summary — Microbiology Department</h1>
+    <p>Comprehensive tabular guide covering spectrum, dosing, pregnancy category, renal adjustment &amp; special cases</p>
+    <p style="margin-top:6px; color:#4e6fa3; font-size:11px;">Source: "شرح المضادات الحيوية بطريقة عبقرية" — compiled &amp; translated to English</p>
+  </div>
+</header>
+
+<!-- TOC -->
+<div class="toc">
+  <span>Jump to section</span>
+  <a href="#sec-overview">Classification Overview</a>
+  <a href="#sec-penicillins">Penicillins</a>
+  <a href="#sec-cephalosporins">Cephalosporins</a>
+  <a href="#sec-carbapenems">Carbapenems &amp; Monobactams</a>
+  <a href="#sec-glyco">Glycopeptides &amp; Lipopeptides</a>
+  <a href="#sec-aminogly">Aminoglycosides</a>
+  <a href="#sec-macrolides">Macrolides</a>
+  <a href="#sec-tetracyclines">Tetracyclines &amp; Glycylclines</a>
+  <a href="#sec-others">Chloramphenicol, Lincosamides &amp; Linezolid</a>
+  <a href="#sec-quinolones">Quinolones</a>
+  <a href="#sec-sulfa">Sulfonamides / Cotrimoxazole</a>
+  <a href="#sec-metro">Metronidazole / Nitroimidazoles</a>
+  <a href="#sec-special">Special Case Tables</a>
+  <a href="#sec-pregnancy">Pregnancy Summary</a>
+  <a href="#sec-renal">Renal Adjustment Summary</a>
+  <a href="#sec-pseudomonas">Anti-Pseudomonal Agents</a>
+  <a href="#sec-mrsa">Anti-MRSA Agents</a>
+</div>
+
+<!-- ===== SECTION 1: CLASSIFICATION OVERVIEW ===== -->
+<div class="section" id="sec-overview">
+  <div class="section-title">
+    <h2>1 · Antibiotic Classification Overview</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Mechanism</th>
+          <th>Class</th>
+          <th>Subclasses / Key Examples</th>
+          <th>Bactericidal / Static</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="4"><strong>Cell Wall Inhibitors</strong></td><td>β-Lactams – Penicillins</td><td>Natural, Anti-staph, Aminopenicillins, Broad-spectrum, Anti-pseudomonal</td><td><span class="tag tag-blue">Cidal</span></td></tr>
+        <tr><td>β-Lactams – Cephalosporins</td><td>1st–5th Generation</td><td><span class="tag tag-blue">Cidal</span></td></tr>
+        <tr><td>β-Lactams – Carbapenems / Monobactams</td><td>Imipenem, Meropenem, Doripenem, Ertapenem; Aztreonam</td><td><span class="tag tag-blue">Cidal</span></td></tr>
+        <tr><td>Glycopeptides / Lipopeptides</td><td>Vancomycin; Daptomycin</td><td><span class="tag tag-blue">Cidal</span></td></tr>
+        <tr><td rowspan="5"><strong>Protein Synthesis Inhibitors</strong></td><td>Aminoglycosides</td><td>Amikacin, Gentamycin, Tobramycin, Neomycin, Streptomycin</td><td><span class="tag tag-blue">Cidal</span></td></tr>
+        <tr><td>Macrolides</td><td>Azithromycin, Clarithromycin, Erythromycin, Spiramycin</td><td><span class="tag tag-purple">Static</span></td></tr>
+        <tr><td>Tetracyclines / Glycylclines</td><td>Doxycycline, Minocycline, Tetracycline; Tigecycline</td><td><span class="tag tag-purple">Static</span></td></tr>
+        <tr><td>Chloramphenicol / Lincosamides</td><td>Chloramphenicol; Clindamycin, Lincomycin</td><td>Chlor: <span class="tag tag-blue">Cidal</span> / Lincosa: <span class="tag tag-purple">Static</span></td></tr>
+        <tr><td>Oxazolidinones</td><td>Linezolid</td><td><span class="tag tag-purple">Static</span></td></tr>
+        <tr><td rowspan="2"><strong>DNA Synthesis Inhibitors</strong></td><td>Quinolones (4 generations)</td><td>Nalidixic Acid, Ciprofloxacin, Levofloxacin, Moxifloxacin</td><td><span class="tag tag-blue">Cidal</span></td></tr>
+        <tr><td>Sulfonamides / Cotrimoxazole / Nitroimidazoles</td><td>Sulfa drugs, Trimethoprim, Metronidazole, Tinidazole</td><td>Sulfa: <span class="tag tag-purple">Static</span> / Cotrimox combined: <span class="tag tag-blue">Cidal</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: PENICILLINS ===== -->
+<div class="section" id="sec-penicillins">
+  <div class="section-title">
+    <h2>2 · Penicillins</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class-wide properties:</strong> Cell wall inhibitors (bactericidal) · Excreted renally (dose-adjust in renal impairment) · Cross placenta → Pregnancy <span class="tag tag-safe">Category B</span> (except Imipenem) · Inactive against atypical bacteria · Do NOT combine with bacteriostatic agents · May cause allergy, GI upset, interstitial nephritis, bone marrow suppression (with prolonged use), seizures (with accumulation)</div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Type</th>
+          <th>Route</th>
+          <th>Spectrum (Key Organisms)</th>
+          <th>Dose (Adults / Children)</th>
+          <th>Pregnancy</th>
+          <th>Renal Adjust?</th>
+          <th>Key Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Penicillin G</div><div class="brand-name">Pfizerpen®</div></td>
+          <td>Natural</td>
+          <td>IV / IM only</td>
+          <td>Streptococci, Gram +ve bacilli, Neisseria; NOT Staph</td>
+          <td>Varies by indication</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Destroyed by beta-lactamase; acid-labile (cannot be given orally)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Penicillin V</div><div class="brand-name">Ospen®</div></td>
+          <td>Natural</td>
+          <td>Oral</td>
+          <td>Same as Pen G</td>
+          <td>Standard dosing</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Acid-stable → can be taken orally; take on empty stomach</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Benzathine Penicillin</div><div class="brand-name">Retarpen®</div></td>
+          <td>Natural (long-acting)</td>
+          <td>IM only</td>
+          <td>Streptococci; Treponema pallidum (syphilis)</td>
+          <td>Adults/&gt;27 kg: 1.2 MU (full vial); &lt;27 kg: 600,000 U; Syphilis: 2.4 MU single dose</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Used for rheumatic fever prophylaxis &amp; syphilis · Sensitivity testing BEFORE every injection · Risk of anaphylaxis</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Oxacillin / Cloxacillin / Dicloxacillin / Flucloxacillin</div></td>
+          <td>Anti-staphylococcal</td>
+          <td>Oral (clox/diclox/fluclox) · IV (oxacillin/nafcillin)</td>
+          <td>MSSA only (NOT MRSA, NOT Strep primarily)</td>
+          <td>Standard weight-based dosing</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Beta-lactamase resistant · Narrow spectrum · Methicillin withdrawn (nephrotoxicity) but used in labs to identify MRSA/MSSA</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Amoxicillin</div></td>
+          <td>Aminopenicillin</td>
+          <td>Oral</td>
+          <td>Streptococci, H. influenzae, E. coli, Proteus, Salmonella; NOT Staph</td>
+          <td>60–90 mg/kg/day ÷ q8h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>NOT affected by food (unlike Ampicillin)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Ampicillin</div></td>
+          <td>Aminopenicillin</td>
+          <td>Oral / IV</td>
+          <td>Same as Amoxicillin</td>
+          <td>50–100 mg/kg/day ÷ q6h; take on empty stomach</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>DOC for meningitis in neonates &lt;1 month (inflamed meninges allow CNS penetration); affected by food → take 1h before or 2h after meals</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Amoxicillin/Clavulanate</div><div class="brand-name">Augmentin®, Curam®</div></td>
+          <td>Broad-spectrum + BLI</td>
+          <td>Oral / IV</td>
+          <td>Adds MSSA coverage + anaerobes to amoxicillin spectrum</td>
+          <td>Mild/mod: 25–45 mg/kg/day ÷ bid or tid; Severe: 60–90 mg/kg/day</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Clavulanic acid inhibits beta-lactamase</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Ampicillin/Sulbactam</div><div class="brand-name">Unasyn®</div></td>
+          <td>Broad-spectrum + BLI</td>
+          <td>IV</td>
+          <td>Wide coverage including anaerobes</td>
+          <td>150–300 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Do NOT mix aminoglycosides in same IV line (charge incompatibility)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Piperacillin/Tazobactam</div><div class="brand-name">Tazocin® 2.25/4.5g</div></td>
+          <td>Anti-pseudomonal + BLI</td>
+          <td>IV q6–8h</td>
+          <td>Pseudomonas aeruginosa, H. influenzae, E. coli, Proteus, anaerobes</td>
+          <td>Weight-based; IV q6–8h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>★ Anti-pseudomonal activity</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: CEPHALOSPORINS ===== -->
+<div class="section" id="sec-cephalosporins">
+  <div class="section-title">
+    <h2>3 · Cephalosporins</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class rule:</strong> As generation increases → less Gram +ve activity, more Gram –ve activity · All Category B · All need renal dose adjustment EXCEPT Ceftriaxone &amp; Cefoperazone (hepatically eliminated) · Penicillin allergic patients: avoid 1st gen (highest cross-sensitivity)</div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#dcfce7"></div>Can be given safely in renal impairment</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fee2e2"></div>Needs dose reduction in renal impairment</div>
+  </div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Generation</th>
+          <th>Drug</th>
+          <th>Route</th>
+          <th>Gram +ve Coverage</th>
+          <th>Gram –ve Coverage</th>
+          <th>Special Coverage</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="4"><span class="gen-badge">1st GEN</span></td>
+          <td><div class="drug-name">Cephalexin</div><div class="brand-name">Ceporex®</div></td>
+          <td>Oral/IV</td>
+          <td>Strep, MSSA</td>
+          <td>PECK (Proteus, E. coli, Klebsiella)</td>
+          <td>—</td>
+          <td>20–50 mg/kg/day ÷ q6–8h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cephradine</div><div class="brand-name">Velosef®</div></td>
+          <td>Oral/IV</td>
+          <td>Strep, MSSA</td>
+          <td>PECK</td>
+          <td>—</td>
+          <td>20–50 mg/kg/day ÷ q6–8h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cephadroxil</div><div class="brand-name">Duricef®</div></td>
+          <td>Oral only</td>
+          <td>Strep, MSSA</td>
+          <td>PECK</td>
+          <td>—</td>
+          <td>20–50 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>Long duration of action</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cephazoline</div><div class="brand-name">Zinol®</div></td>
+          <td>IV/IM only</td>
+          <td>Strep, MSSA ★★</td>
+          <td>PECK</td>
+          <td>—</td>
+          <td>20–50 mg/kg/day ÷ q8h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>★ Pre-operative prophylaxis; good bone penetration; t½ ~1.8h</td>
+        </tr>
+        <tr>
+          <td rowspan="5"><span class="gen-badge">2nd GEN</span></td>
+          <td><div class="drug-name">Cefuroxime</div><div class="brand-name">Zinnat®</div></td>
+          <td>Oral/IV</td>
+          <td>Strep, MSSA (less than 1st)</td>
+          <td>HN-PECK</td>
+          <td>—</td>
+          <td>20–40 mg/kg/day ÷ q12h (or q8h)</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>H = H. influenzae, N = Neisseria</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefaclor</div><div class="brand-name">Bacticlor®</div></td>
+          <td>Oral only</td>
+          <td>Strep, MSSA (less)</td>
+          <td>HN-PECK</td>
+          <td>—</td>
+          <td>20–40 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefprozil</div><div class="brand-name">Cefzil®</div></td>
+          <td>Oral only</td>
+          <td>Strep, MSSA (less)</td>
+          <td>HN-PECK</td>
+          <td>—</td>
+          <td>20–40 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefoxitin</div></td>
+          <td>IV/IM</td>
+          <td>Strep, MSSA (less)</td>
+          <td>HN-PECK + anaerobes</td>
+          <td>Bacteroides (anaerobic)</td>
+          <td>q8–12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>Anti-anaerobic activity</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefotetan</div></td>
+          <td>IV/IM</td>
+          <td>Strep, MSSA (less)</td>
+          <td>HN-PECK + anaerobes</td>
+          <td>Bacteroides (anaerobic)</td>
+          <td>q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>Anti-anaerobic activity</td>
+        </tr>
+        <tr>
+          <td rowspan="8"><span class="gen-badge">3rd GEN</span></td>
+          <td><div class="drug-name">Cefixime</div><div class="brand-name">Suprax®</div></td>
+          <td>Oral only</td>
+          <td>Strep only (NOT Staph)</td>
+          <td>HN-PECKS</td>
+          <td>—</td>
+          <td>8 mg/kg/day once daily or ÷ bid</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>S = Serratia added</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefpodoxime</div><div class="brand-name">Orelox®</div></td>
+          <td>Oral only</td>
+          <td>Strep only</td>
+          <td>HN-PECKS</td>
+          <td>—</td>
+          <td>10 mg/kg/day ÷ bid</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefdinir</div><div class="brand-name">Dinar®</div></td>
+          <td>Oral only</td>
+          <td>Strep only</td>
+          <td>HN-PECKS</td>
+          <td>—</td>
+          <td>14 mg/kg/day once daily</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefditoren</div><div class="brand-name">Meiacton®</div></td>
+          <td>Oral only</td>
+          <td>Strep + some Staph</td>
+          <td>HN-PECKS</td>
+          <td>—</td>
+          <td>200–400 mg bid (adults only)</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>Only oral 3rd gen with Gm+ve activity</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefoperazone</div><div class="brand-name">Cefobid®</div></td>
+          <td>IV/IM</td>
+          <td>Strep only</td>
+          <td>HN-PECKS + Pseudomonas ★</td>
+          <td>Pseudomonas</td>
+          <td>50–100 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td style="background:#dcfce7"><span class="tag tag-safe">NO ✓</span></td>
+          <td>★ Anti-pseudomonal · Hepatically excreted → safe in renal failure</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Ceftazidime</div><div class="brand-name">Fortum®</div></td>
+          <td>IV/IM</td>
+          <td>Strep only</td>
+          <td>HN-PECKS + Pseudomonas ★</td>
+          <td>Pseudomonas</td>
+          <td>50–100 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>★ Anti-pseudomonal</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefotaxime</div><div class="brand-name">Cefotax®</div></td>
+          <td>IV/IM</td>
+          <td>Strep only</td>
+          <td>HN-PECKS</td>
+          <td>CNS penetration (meningitis)</td>
+          <td>50–100 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>Used for meningitis (all ages)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Ceftriaxone</div><div class="brand-name">Rociphen®</div></td>
+          <td>IV/IM</td>
+          <td>Strep only</td>
+          <td>HN-PECKS + Neisseria (gonorrhea)</td>
+          <td>CNS penetration; bone penetration</td>
+          <td>50–100 mg/kg/day once daily (longest t½)</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td style="background:#dcfce7"><span class="tag tag-safe">NO ✓</span></td>
+          <td>★ Meningitis (children &gt;1 month); gonorrhea; hepatically excreted. AVOID in neonates &lt;1 month (kernicterus). NEVER mix with calcium-containing IV fluids (Ringer's → fatal precipitation)</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><span class="gen-badge">4th GEN</span></td>
+          <td><div class="drug-name">Cefepime</div><div class="brand-name">Maxipime®</div></td>
+          <td>IV/IM</td>
+          <td>Strep + MSSA</td>
+          <td>HN-PECKS + CAPE (Citrobacter, Acinetobacter, Pseudomonas ★, Enterobacter)</td>
+          <td>Pseudomonas</td>
+          <td>50–100 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>★ Broad spectrum incl. Pseudomonas</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Cefpirome</div></td>
+          <td>IV/IM</td>
+          <td>Strep + MSSA</td>
+          <td>HN-PECKS-CAPE</td>
+          <td>Pseudomonas</td>
+          <td>50–100 mg/kg/day ÷ q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="gen-badge">5th GEN</span></td>
+          <td><div class="drug-name">Ceftaroline</div></td>
+          <td>IV/IM</td>
+          <td>Strep + MSSA + <strong>MRSA ★★</strong></td>
+          <td>HN-PECKS (same as ceftriaxone)</td>
+          <td>★★ MRSA coverage</td>
+          <td>600 mg q12h</td>
+          <td><span class="tag tag-safe">B</span></td>
+          <td><span class="tag tag-danger">Yes</span></td>
+          <td>First cephalosporin active against MRSA</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: CARBAPENEMS & MONOBACTAMS ===== -->
+<div class="section" id="sec-carbapenems">
+  <div class="section-title">
+    <h2>4 · Carbapenems &amp; Monobactams</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Brand</th>
+          <th>Route / Frequency</th>
+          <th>Spectrum</th>
+          <th>Pseudomonas?</th>
+          <th>Anaerobes?</th>
+          <th>Atypicals?</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Imipenem / Cilastatin</div></td>
+          <td>Tienam®</td>
+          <td>IV or IM q6–8h</td>
+          <td>Broadest: Gm+ve, Gm–ve, anaerobes</td>
+          <td><span class="tag tag-safe">Yes ★</span></td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>No</td>
+          <td>Weight-based</td>
+          <td><span class="tag tag-danger">Cat C</span></td>
+          <td>Yes</td>
+          <td>Cilastatin prevents renal tubular breakdown &amp; nephrotoxic metabolite. Seizure risk (avoid with bupropion). Starts with "C" → Category C</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Meropenem</div></td>
+          <td>Meronem®</td>
+          <td>IV only q8h</td>
+          <td>Same as Imipenem</td>
+          <td><span class="tag tag-safe">Yes ★</span></td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>No</td>
+          <td>Weight-based</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>500 mg / 1000 mg concentrations</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Doripenem</div></td>
+          <td>Doribax®</td>
+          <td>IV only q8h</td>
+          <td>Same as Imipenem</td>
+          <td><span class="tag tag-safe">Yes ★</span></td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>No</td>
+          <td>500 mg only</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Ertapenem</div></td>
+          <td>Invanz®</td>
+          <td>IV or IM once daily (q24h)</td>
+          <td>Broad EXCEPT Pseudomonas</td>
+          <td><span class="tag tag-danger">NO ✗</span></td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>No</td>
+          <td>1g once daily</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Only carbapenem WITHOUT anti-pseudomonal activity. Avoid with bupropion (seizure risk)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Aztreonam</div></td>
+          <td>Azactam® 500/1000mg</td>
+          <td>IV/IM q6–12h</td>
+          <td>Gram-negative ONLY (incl. Pseudomonas)</td>
+          <td><span class="tag tag-safe">Yes ★</span></td>
+          <td>No</td>
+          <td>No</td>
+          <td>1g q12h or 500mg q6h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>★ UNIQUE: No cross-sensitivity with penicillin allergy (different structure). Safe in penicillin-allergic patients</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: GLYCOPEPTIDES & LIPOPEPTIDES ===== -->
+<div class="section" id="sec-glyco">
+  <div class="section-title">
+    <h2>5 · Glycopeptides &amp; Lipopeptides</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Class</th>
+          <th>Route</th>
+          <th>Spectrum</th>
+          <th>MRSA?</th>
+          <th>C. difficile?</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Key ADRs</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Vancomycin</div></td>
+          <td>Glycopeptide</td>
+          <td>IV infusion (60–90 min) or Oral (for C. diff only)</td>
+          <td>Strep, Staph (MSSA + MRSA), Enterococcus faecalis, C. difficile</td>
+          <td><span class="tag tag-safe">Yes ★★</span></td>
+          <td><span class="tag tag-safe">Oral only</span></td>
+          <td>IV: 15–20 mg/kg/dose q8–12h · Oral (C.diff): 125–500 mg q6h × 10–14 days</td>
+          <td>IV: <span class="tag tag-danger">Cat C</span> · Oral: <span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Nephrotoxicity, Ototoxicity, Red Man Syndrome (if infused too fast)</td>
+          <td>Monitor trough levels (target 15–20 mg/L for severe infections). Slow infusion prevents Red Man Syndrome. NOT absorbed orally → used locally for C. diff</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Daptomycin</div></td>
+          <td>Lipopeptide</td>
+          <td>IV once daily</td>
+          <td>Strep, Staph (MSSA + MRSA), Enterococci including VRE; NOT C. difficile</td>
+          <td><span class="tag tag-safe">Yes ★★</span></td>
+          <td><span class="tag tag-danger">No ✗</span></td>
+          <td>4–6 mg/kg q24h · Renal failure (CrCl &lt;30): q48h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>Yes</td>
+          <td>Myopathy, Rhabdomyolysis (monitor CPK weekly)</td>
+          <td>DO NOT use for pneumonia (inactivated by pulmonary surfactant). Avoid with statins (↑ myopathy risk). Stronger than Vancomycin against VRE</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 6: AMINOGLYCOSIDES ===== -->
+<div class="section" id="sec-aminogly">
+  <div class="section-title">
+    <h2>6 · Aminoglycosides</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class warnings:</strong> Nephrotoxicity · Irreversible Ototoxicity (deafness, vertigo) · Category D (AVOID in pregnancy) · Dose-adjust in renal impairment · Extended-interval dosing preferred (once daily) · Avoid concurrent nephrotoxins (cisplatin, loop diuretics, vancomycin, tacrolimus, radio-contrast dyes)</div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Route</th>
+          <th>Spectrum</th>
+          <th>Dose (Extended Interval)</th>
+          <th>Trough Target</th>
+          <th>Peak Target</th>
+          <th>Preg</th>
+          <th>Special Uses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Gentamycin</div><div class="brand-name">Garamycin®</div></td>
+          <td>IV / IM</td>
+          <td>Gram –ve (incl. Pseudomonas), synergy with beta-lactams for Gram +ve endocarditis</td>
+          <td>4–7 mg/kg q24h</td>
+          <td>&lt;2 mg/L</td>
+          <td>5–10 mg/L</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Endocarditis (with beta-lactam or vancomycin)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Tobramycin</div><div class="brand-name">Nebcin®</div></td>
+          <td>IV / IM</td>
+          <td>Same as Gentamycin</td>
+          <td>4–7 mg/kg q24h</td>
+          <td>&lt;2 mg/L</td>
+          <td>5–10 mg/L</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Similar to Gentamycin</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Amikacin</div><div class="brand-name">Amikin®</div></td>
+          <td>IV / IM</td>
+          <td>Same; often used for resistant Gram-negatives</td>
+          <td>15–20 mg/kg q24h</td>
+          <td>&lt;5 mg/L</td>
+          <td>20–30 mg/L</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Resistant Gram-negative organisms</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Neomycin</div></td>
+          <td>Oral (non-absorbed) · Topical</td>
+          <td>Gram –ve intestinal flora</td>
+          <td>Oral: 1–6g/day ÷ q6h × 1–2 weeks</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Pre-op bowel prep; hepatic encephalopathy prevention (reduces ammonia-producing flora). Topical: creams, eye drops, ear drops</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Streptomycin</div></td>
+          <td>IM only · Oral (non-absorbed)</td>
+          <td>Mycobacterium tuberculosis; Plague (Yersinia pestis)</td>
+          <td>TB: 15 mg/kg/day ÷ bid or q48h × 3/week. Plague: 15 mg/kg/day ÷ bid ×10 days</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Part of TB regimen (with isoniazid); 1st-line for plague; Oral as intestinal antiseptic (Streptoquine®, Entocid®)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 7: MACROLIDES ===== -->
+<div class="section" id="sec-macrolides">
+  <div class="section-title">
+    <h2>7 · Macrolides</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class note:</strong> First class with atypical bacteria coverage · QT prolongation risk in all members · Hepatic enzyme inhibitors (CYP3A4) → many drug interactions · Erythromycin = benzyl penicillin substitute in penicillin-allergic patients</div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Brand</th>
+          <th>Route</th>
+          <th>Spectrum</th>
+          <th>Atypicals?</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Key ADRs / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Azithromycin</div></td>
+          <td>Zithromax®</td>
+          <td>Oral / IV</td>
+          <td>Strep, Neisseria, H. influenzae; more Gm–ve than Erythro</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>10 mg/kg/day once daily. Adults: 500 mg day 1, then 250 mg days 2–5 (empty stomach). 2g single dose for STDs/cholera</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td><span class="tag tag-safe">NO ✓</span></td>
+          <td>Fewest drug interactions of the class · QT prolongation · Oral:IV 1:1</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Clarithromycin</div></td>
+          <td>Klacid®</td>
+          <td>Oral</td>
+          <td>Strep, Neisseria, H. influenzae; more Gm+ve than Erythro; H. pylori (in triple therapy)</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>15 mg/kg/day ÷ q12h. Adults: 500 mg q12h</td>
+          <td><span class="tag tag-danger">Cat C</span></td>
+          <td>Yes (halve dose if CrCl &lt;30)</td>
+          <td>Strongest CYP3A4 inhibitor of class · Strong drug interactions (warfarin, digoxin, theophylline) · QT prolongation · Part of H. pylori triple therapy</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Erythromycin</div></td>
+          <td>Erythrocin®</td>
+          <td>Oral / IV</td>
+          <td>Strep, Neisseria; Treponema pallidum (syphilis)</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>30 mg/kg/day ÷ q6h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td><span class="tag tag-safe">NO ✓</span></td>
+          <td>Penicillin G substitute. Prokinetic use (gastroparesis, post-op ileus): 250 mg before meals. Most GI side effects of the class · QT prolongation · CYP3A4 inhibitor</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Spiramycin</div></td>
+          <td>Spirazole®</td>
+          <td>Oral</td>
+          <td>Gm+ve organisms</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>3 MU q8h (3× daily)</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td>—</td>
+          <td>Used by dentists (esp. Spirazole Forte® = Spiramycin + Metronidazole) for dental/periodontal infections. Used for toxoplasmosis in pregnancy</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 8: TETRACYCLINES & GLYCYLCLINES ===== -->
+<div class="section" id="sec-tetracyclines">
+  <div class="section-title">
+    <h2>8 · Tetracyclines &amp; Glycylclines</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class warnings:</strong> Category D (all) — CONTRAINDICATED in pregnancy &amp; breastfeeding · NO pediatric use &lt;8 years (permanent teeth discoloration, bone growth suppression) · Avoid dairy products, antacids, calcium, iron supplements within 2–4h · Photosensitivity · Raises BUN (pseudo-renal impairment)</div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Brand</th>
+          <th>Route</th>
+          <th>Spectrum</th>
+          <th>MRSA?</th>
+          <th>Dose (Adults)</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Key Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Doxycycline</div></td>
+          <td>Vibramycin®</td>
+          <td>Oral / IV</td>
+          <td>Broad: Gm+ve (Strep, Staph), Gm–ve (H. influenzae, Vibrio cholerae, Brucella), Atypicals, Treponema, Borrelia (Lyme disease)</td>
+          <td><span class="tag tag-caution">Mild/Mod MRSA only</span></td>
+          <td>100 mg q12h OR 200 mg once daily. Cholera: 300 mg single dose</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td><span class="tag tag-safe">NO ✓</span></td>
+          <td>Most widely used tetracycline · Oral:IV 1:1 ratio · Rosacea · Acne (do NOT use with isotretinoin → pseudotumor cerebri risk) · Take after food</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Minocycline</div></td>
+          <td>Minocin®</td>
+          <td>Oral</td>
+          <td>Broadest spectrum of all tetracyclines; includes MRSA</td>
+          <td><span class="tag tag-caution">Mild/Mod MRSA</span></td>
+          <td>100 mg q12h</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td><span class="tag tag-safe">NO ✓</span></td>
+          <td>Drug-induced lupus (DILE) risk · More ADRs than Doxycycline · Used for acne (NOT with isotretinoin)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Tetracycline</div></td>
+          <td>Hostacycline®</td>
+          <td>Oral</td>
+          <td>Broad spectrum; H. pylori</td>
+          <td>Partial</td>
+          <td>500 mg q6h (empty stomach)</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Yes</td>
+          <td>Used in quadruple H. pylori therapy (bismuth + tetracycline + metronidazole + PPI) when first-line fails</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Tigecycline</div></td>
+          <td>Tygacil® 50mg</td>
+          <td>IV only</td>
+          <td>Widest of all: Gm+ve (MSSA, MRSA, VRSA, VRE), Gm–ve (E. coli, Acinetobacter, Klebsiella, Salmonella, Shigella), Atypicals, Anaerobes (C. diff, Bacteroides)</td>
+          <td><span class="tag tag-safe">Yes ★★ (even VRSA)</span></td>
+          <td>Loading: 100 mg IV, then 50 mg q12h</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td><span class="tag tag-safe">NO ✓</span></td>
+          <td>NO activity against Pseudomonas, Proteus, Providencia · High nausea/vomiting rate (~33%) · Diarrhea 13% · Hepatically eliminated. Used for complicated intra-abdominal &amp; skin/soft tissue infections</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 9: CHLORAMPHENICOL, LINCOSAMIDES & LINEZOLID ===== -->
+<div class="section" id="sec-others">
+  <div class="section-title">
+    <h2>9 · Chloramphenicol, Lincosamides &amp; Linezolid (Oxazolidinone)</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Class</th>
+          <th>Action</th>
+          <th>Spectrum</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Key ADRs / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Chloramphenicol</div></td>
+          <td>Chloramphenicol</td>
+          <td>Bactericidal (exception)</td>
+          <td>Broad: Gm+ve, Gm–ve, Anaerobes, Atypicals (Mycoplasma, Chlamydia, Treponema)</td>
+          <td>50–100 mg/kg/day ÷ q6h</td>
+          <td><span class="tag tag-caution">Cat C</span></td>
+          <td><span class="tag tag-safe">NO ✓ (hepatic)</span></td>
+          <td>★ GREY BABY SYNDROME in neonates (cardiovascular collapse, cyanosis, death) · Bone marrow suppression, aplastic anemia · Reserved for serious infections only · Not widely used due to ADRs</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Clindamycin</div></td>
+          <td>Lincosamide</td>
+          <td>Bacteriostatic</td>
+          <td>Gm+ve (Strep, MSSA, non-multiresistant MRSA) + Anaerobes (Clostridium sp., Bacteroides); NOT Enterococci; NOT C. difficile</td>
+          <td>Oral: 10–20 mg/kg/day ÷ q6–8h; IV: 20–40 mg/kg/day ÷ q6–8h</td>
+          <td><span class="tag tag-safe">Cat B</span></td>
+          <td><span class="tag tag-safe">NO ✓ (biliary)</span></td>
+          <td>★ CAUSES pseudomembranous colitis (C. difficile overgrowth) · Steven-Johnson Syndrome · GI upset · Dental infections (with Metronidazole) · Oral:IV ratio 1:2 · NOT for UTI (low urinary conc.)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Lincomycin</div></td>
+          <td>Lincosamide</td>
+          <td>Static → Cidal at high doses</td>
+          <td>Same as Clindamycin</td>
+          <td>IM/IV: 600 mg q12–24h; Pediatric: 10 mg/kg/day</td>
+          <td><span class="tag tag-caution">Cat C</span></td>
+          <td>—</td>
+          <td>Injection only (Lincocin® 300/600mg) · More ADRs than Clindamycin · Used for pen-allergic patients or resistant cases · Mainly used in veterinary medicine</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Linezolid</div></td>
+          <td>Oxazolidinone</td>
+          <td>Bacteriostatic</td>
+          <td>Gm+ve only: Strep (incl. penicillin-resistant), Staph (MSSA + MRSA), Enterococci (incl. VRE)</td>
+          <td>600 mg q12h (oral or IV)</td>
+          <td><span class="tag tag-caution">Cat C</span></td>
+          <td><span class="tag tag-safe">NO ✓</span></td>
+          <td>Weak MAOI → AVOID with antidepressant MAOIs (selegiline, tranylcypromine) — 2 weeks washout needed · Myelosuppression (CBC weekly) · Peripheral/optic neuritis if &gt;28 days · Hypoglycemia · Oral:IV 1:1. Do NOT use for trivial infections</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 10: QUINOLONES ===== -->
+<div class="section" id="sec-quinolones">
+  <div class="section-title">
+    <h2>10 · Quinolones (Fluoroquinolones)</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class notes:</strong> Bactericidal · DNA gyrase / Topoisomerase IV inhibitors · Avoid in children (cartilage damage) · QT prolongation · Avoid dairy/antacids within 2h · Ciprofloxacin is most potent anti-pseudomonal quinolone</div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Generation</th>
+          <th>Drug</th>
+          <th>Brand</th>
+          <th>Route</th>
+          <th>Key Spectrum</th>
+          <th>Atypicals?</th>
+          <th>Pseudomonas?</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="gen-badge">1st</span></td>
+          <td><div class="drug-name">Nalidixic Acid</div></td>
+          <td>Nalidram®</td>
+          <td>Oral</td>
+          <td>Gram –ve only</td>
+          <td>No</td>
+          <td><span class="tag tag-danger">No</span></td>
+          <td>500 mg q6h</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>Narrow spectrum, low bioavailability; UTI only; rarely used</td>
+        </tr>
+        <tr>
+          <td rowspan="5"><span class="gen-badge">2nd</span></td>
+          <td><div class="drug-name">Ciprofloxacin</div></td>
+          <td>Ciprobay®</td>
+          <td>Oral / IV / Eye drops</td>
+          <td>Gm–ve (E. coli, H. flu, Shigella, Salmonella, Enterobacter, Proteus) + MSSA; Anthrax (DOC)</td>
+          <td>Some</td>
+          <td><span class="tag tag-safe">Yes ★★ (most potent)</span></td>
+          <td>Oral: 250–750 mg q8–12h; IV: 200–400 mg q8–12h; Renal (CrCl &lt;30): q24h</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>★★ Most potent anti-pseudomonal quinolone · DOC for anthrax · UTI, prostatitis, pyelonephritis, osteomyelitis, traveler's diarrhea, typhoid fever</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Ofloxacin</div></td>
+          <td>Tarivid®</td>
+          <td>Oral / Eye drops</td>
+          <td>Similar to Cipro, less potent vs. Pseudomonas</td>
+          <td>Some</td>
+          <td><span class="tag tag-caution">Less than Cipro</span></td>
+          <td>200–400 mg q12h; Renal (CrCl &lt;30): q24h</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Norfloxacin</div></td>
+          <td>Norbactin®</td>
+          <td>Oral</td>
+          <td>Gm–ve; concentrates in urine</td>
+          <td>Some</td>
+          <td>Less</td>
+          <td>400 mg q12h; Renal (CrCl &lt;30): q24h</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>Primarily for UTI; often combined with tinidazole (Conaz®, Tinidol Plus®)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Enoxacin</div></td>
+          <td>Magnafloxacin®</td>
+          <td>Oral</td>
+          <td>Gm–ve</td>
+          <td>Some</td>
+          <td>Some</td>
+          <td>400 mg q12h</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Lomefloxacin</div></td>
+          <td>Lomex®</td>
+          <td>Oral</td>
+          <td>Gm–ve</td>
+          <td>Some</td>
+          <td>Some</td>
+          <td>400 mg q12h</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><span class="gen-badge">3rd</span></td>
+          <td><div class="drug-name">Levofloxacin</div></td>
+          <td>Tavanic®</td>
+          <td>Oral / IV</td>
+          <td>Gm–ve + Gm+ve (Strep pneumo ★) + Atypicals</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>Some</td>
+          <td>500 mg once daily; Renal adj. if CrCl &lt;50</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>★ Excellent vs. Streptococcus pneumoniae (CAP). "Respiratory fluoroquinolone"</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Moxifloxacin</div></td>
+          <td>Avalox®</td>
+          <td>Oral / IV / Eye drops</td>
+          <td>Gm–ve + Gm+ve + Atypicals + some Anaerobes</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>Less</td>
+          <td>400 mg once daily</td>
+          <td>Contraindicated</td>
+          <td><span class="tag tag-safe">NO ✓ (hepatic)</span></td>
+          <td>"Respiratory fluoroquinolone" · Anaerobic coverage · No renal adjustment needed</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Gatifloxacin</div></td>
+          <td>Tequin®</td>
+          <td>Oral / Eye drops</td>
+          <td>Gm–ve + Gm+ve + Atypicals</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>Some</td>
+          <td>400 mg once daily</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Gemifloxacin / Sparfloxacin</div></td>
+          <td>Gemique® / Spara®</td>
+          <td>Oral</td>
+          <td>Similar 3rd gen</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>Some</td>
+          <td>320 mg / 200 mg once daily</td>
+          <td>Contraindicated</td>
+          <td>Yes</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="gen-badge">4th</span></td>
+          <td><div class="drug-name">Trovafloxacin</div></td>
+          <td>—</td>
+          <td>Oral / IV</td>
+          <td>Widest: Gm+ve, Gm–ve, Atypicals, Anaerobes</td>
+          <td><span class="tag tag-safe">Yes</span></td>
+          <td>Yes</td>
+          <td>200–300 mg once daily</td>
+          <td>Contraindicated</td>
+          <td>—</td>
+          <td>Hepatotoxicity → withdrawn in many countries</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 11: SULFONAMIDES ===== -->
+<div class="section" id="sec-sulfa">
+  <div class="section-title">
+    <h2>11 · Sulfonamides / Cotrimoxazole</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="note-box"><strong>Class warnings:</strong> Sulfa allergy (SJS, anaphylaxis) · QT prolongation · Bone marrow suppression · Hyperkalemia · Crystalluria → drink plenty of water · G6PD deficiency hemolytic anemia · AVOID in: neonates &lt;2 months (kernicterus), pregnancy (Cat D), G6PD deficiency · Many drug interactions (warfarin, methotrexate, phenytoin, oral hypoglycemics, potassium-sparing drugs)</div>
+  <br>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Combination</th>
+          <th>Spectrum</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Renal Adj.</th>
+          <th>Key Uses / Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Cotrimoxazole</div><div class="brand-name">Septazole®, Septrin®</div></td>
+          <td>Sulfamethoxazole 400 mg + Trimethoprim 80 mg (SS) or 800/160 mg (DS)</td>
+          <td>Gm+ve (Strep, MSSA, MRSA), Gm–ve (H. flu, E. coli, Salmonella, Shigella, Enterobacter), Protozoa (Toxoplasma, Plasmodium), Fungi (PCP/PJP)</td>
+          <td>UTI: 1 DS tab q12h × 3 days · PCP: 15–20 mg/kg/day TMP ÷ IV or oral × 21 days · PCP prophylaxis (AIDS): 1 SS tab daily or 1 DS tab 3×/week</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Yes (↓ 50% if CrCl 15–30; contraindicated if &lt;15)</td>
+          <td>Bactericidal in combination (each drug alone = static) · Oral:IV 1:1 · UTI, prostatitis, PCP in AIDS · Trimethoprim → folic acid deficiency → treat with Leucovorin (folinic acid)</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Sulfadoxine / Pyrimethamine</div></td>
+          <td>Anti-malarial combination</td>
+          <td>Plasmodium malaria</td>
+          <td>Per malaria protocol</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Yes</td>
+          <td>Malaria prophylaxis &amp; treatment</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Sulfadiazine / Pyrimethamine</div></td>
+          <td>Anti-toxoplasma</td>
+          <td>Toxoplasma gondii</td>
+          <td>Per toxoplasmosis protocol</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Yes</td>
+          <td>Toxoplasmosis treatment</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Dapsone</div></td>
+          <td>Sulfonamide</td>
+          <td>Mycobacterium leprae (leprosy), Malaria, PCP</td>
+          <td>Per indication</td>
+          <td><span class="tag tag-danger">Cat D</span></td>
+          <td>Yes</td>
+          <td>Leprosy · Malaria · PCP alternative</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Silver Sulfadiazine</div></td>
+          <td>Topical only</td>
+          <td>Broad; prevents burn colonization</td>
+          <td>Apply topically to burns</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Dermazin® · Burns prophylaxis · Less painful than mafenide</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Sulfasalazine</div></td>
+          <td>Salazopyrine®</td>
+          <td>Local anti-inflammatory in colon</td>
+          <td>Per IBD / RA protocol</td>
+          <td>—</td>
+          <td>—</td>
+          <td>NOT absorbed → stays in colon → cleaved to sulfapyridine (ADRs) + aminosalicylic acid (anti-inflammatory). Used for ulcerative colitis, Crohn's disease, rheumatoid arthritis</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 12: METRONIDAZOLE ===== -->
+<div class="section" id="sec-metro">
+  <div class="section-title">
+    <h2>12 · Nitroimidazoles (Metronidazole, Tinidazole, Secnidazole, Ornidazole)</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Route</th>
+          <th>Spectrum</th>
+          <th>Dose</th>
+          <th>Preg</th>
+          <th>Key Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="drug-name">Metronidazole</div><div class="brand-name">Flagyl®</div></td>
+          <td>Oral / IV / Topical</td>
+          <td>Anaerobes (Bacteroides, Clostridium), Protozoa (Trichomonas, Giardia, Entamoeba), H. pylori (in triple therapy)</td>
+          <td>500 mg q8h (IV or oral); 250 mg q6h for H. pylori</td>
+          <td><span class="tag tag-caution">Avoid 1st trimester; use with caution</span></td>
+          <td>Disulfiram-like reaction with alcohol · Part of dental infection regimens (with Spiramycin). Used in H. pylori quadruple therapy</td>
+        </tr>
+        <tr>
+          <td><div class="drug-name">Tinidazole / Secnidazole / Ornidazole</div></td>
+          <td>Oral</td>
+          <td>Same as Metronidazole</td>
+          <td>Per indication</td>
+          <td><span class="tag tag-caution">Avoid 1st trimester</span></td>
+          <td>Tinidazole combined with Norfloxacin (Conaz®) for UTI/GI infections</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SPECIAL CASE TABLES ===== -->
+<div class="section" id="sec-special">
+  <div class="section-title">
+    <h2>13 · Special Case Tables</h2>
+    <div class="divider"></div>
+  </div>
+
+  <!-- Pregnancy -->
+  <div id="sec-pregnancy">
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13a · Pregnancy Safety Summary</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Category B — Generally SAFE</th>
+          <th>Category C — Use ONLY if benefit outweighs risk</th>
+          <th>Category D — CONTRAINDICATED</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="vertical-align:top">
+          <td>
+            <ul class="compact">
+              <li>All Penicillins</li>
+              <li>All Cephalosporins (1st–5th gen)</li>
+              <li>Meropenem, Doripenem, Ertapenem, Aztreonam</li>
+              <li>Daptomycin</li>
+              <li>Azithromycin, Erythromycin, Spiramycin</li>
+              <li>Clindamycin</li>
+              <li>Vancomycin (oral route only)</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="compact">
+              <li>Imipenem/Cilastatin ← only beta-lactam Cat C</li>
+              <li>Vancomycin (IV route)</li>
+              <li>Clarithromycin</li>
+              <li>Chloramphenicol</li>
+              <li>Lincomycin</li>
+              <li>Linezolid</li>
+            </ul>
+          </td>
+          <td>
+            <ul class="compact">
+              <li>All Aminoglycosides</li>
+              <li>All Tetracyclines (including Tigecycline)</li>
+              <li>All Quinolones</li>
+              <li>Cotrimoxazole / Sulfonamides</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note-box"><strong>Special pregnancy considerations:</strong> Spiramycin is used for toxoplasmosis in pregnancy. Benzathine penicillin is the treatment for syphilis in pregnancy (2.4 MU IM). Silver sulfadiazine topically is acceptable for burns. Metronidazole: avoid in 1st trimester if possible.</div>
+  </div>
+
+  <br>
+
+  <!-- Renal Adjustment -->
+  <div id="sec-renal">
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13b · Renal Impairment — Drugs NOT Requiring Dose Adjustment</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Class</th>
+          <th>Reason for No Renal Adjustment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="drug-name">Ceftriaxone</div></td><td>3rd Gen Cephalosporin</td><td>Hepatically metabolized, excreted via bile / feces</td></tr>
+        <tr><td><div class="drug-name">Cefoperazone</div></td><td>3rd Gen Cephalosporin</td><td>Hepatically metabolized, excreted via bile / feces</td></tr>
+        <tr><td><div class="drug-name">Azithromycin</div></td><td>Macrolide</td><td>Hepatic metabolism; not renally excreted</td></tr>
+        <tr><td><div class="drug-name">Erythromycin</div></td><td>Macrolide</td><td>Hepatic metabolism; not renally excreted</td></tr>
+        <tr><td><div class="drug-name">Doxycycline</div></td><td>Tetracycline</td><td>Hepatic / fecal elimination</td></tr>
+        <tr><td><div class="drug-name">Minocycline</div></td><td>Tetracycline</td><td>Hepatic / fecal elimination</td></tr>
+        <tr><td><div class="drug-name">Tigecycline</div></td><td>Glycylcline</td><td>No significant metabolism; biliary excretion</td></tr>
+        <tr><td><div class="drug-name">Chloramphenicol</div></td><td>Chloramphenicol</td><td>Hepatic glucuronidation (use with caution)</td></tr>
+        <tr><td><div class="drug-name">Clindamycin</div></td><td>Lincosamide</td><td>Hepatic; excreted via bile (cannot treat UTI)</td></tr>
+        <tr><td><div class="drug-name">Linezolid</div></td><td>Oxazolidinone</td><td>Not renally or hepatically metabolized significantly</td></tr>
+        <tr><td><div class="drug-name">Moxifloxacin</div></td><td>4th Gen Quinolone</td><td>Hepatic elimination</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <br>
+
+  <!-- Anti-Pseudomonal -->
+  <div id="sec-pseudomonas">
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13c · Anti-Pseudomonal Agents (Pseudomonas aeruginosa)</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Drug</th>
+          <th>Class</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><div class="drug-name">Piperacillin/Tazobactam (Tazocin®)</div></td><td>Anti-pseudomonal Penicillin + BLI</td><td>IV only</td></tr>
+        <tr><td>2</td><td><div class="drug-name">Imipenem, Meropenem, Doripenem</div></td><td>Carbapenems</td><td>All carbapenems EXCEPT Ertapenem</td></tr>
+        <tr><td>3</td><td><div class="drug-name">Aztreonam (Azactam®)</div></td><td>Monobactam</td><td>Gram-negative ONLY; safe in penicillin allergy</td></tr>
+        <tr><td>4</td><td><div class="drug-name">Ceftazidime (Fortum®)</div></td><td>3rd Gen Cephalosporin</td><td>IV/IM</td></tr>
+        <tr><td>5</td><td><div class="drug-name">Cefoperazone (Cefobid®)</div></td><td>3rd Gen Cephalosporin</td><td>IV/IM; no renal adjustment</td></tr>
+        <tr><td>6</td><td><div class="drug-name">Cefepime (Maxipime®) / Cefpirome</div></td><td>4th Gen Cephalosporins</td><td>IV/IM</td></tr>
+        <tr><td>7</td><td><div class="drug-name">Ciprofloxacin</div></td><td>2nd Gen Quinolone</td><td>Most potent anti-pseudomonal quinolone</td></tr>
+        <tr><td>8</td><td><div class="drug-name">Aminoglycosides</div> (Amikacin, Gentamycin, Tobramycin)</td><td>Aminoglycosides</td><td>Often used in combination; Category D</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <br>
+
+  <!-- Anti-MRSA -->
+  <div id="sec-mrsa">
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13d · Anti-MRSA Agents</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Class</th>
+          <th>Severity of MRSA Appropriate For</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="drug-name">Vancomycin</div></td><td>Glycopeptide</td><td>All severities — gold standard</td><td>IV infusion; monitor trough (15–20 mg/L)</td></tr>
+        <tr><td><div class="drug-name">Daptomycin</div></td><td>Lipopeptide</td><td>Skin/soft tissue; bacteremia. NOT pneumonia</td><td>Stronger than vancomycin; also covers VRE</td></tr>
+        <tr><td><div class="drug-name">Linezolid</div></td><td>Oxazolidinone</td><td>Moderate-severe; alternative to vancomycin</td><td>Oral or IV; reserve for resistant cases</td></tr>
+        <tr><td><div class="drug-name">Ceftaroline (5th gen cephalosporin)</div></td><td>Beta-lactam</td><td>Skin/soft tissue, pneumonia</td><td>Only cephalosporin with MRSA activity</td></tr>
+        <tr><td><div class="drug-name">Tigecycline</div></td><td>Glycylcline</td><td>Complicated infections; also covers VRSA</td><td>High nausea rate; no Pseudomonas activity</td></tr>
+        <tr><td><div class="drug-name">Doxycycline / Minocycline</div></td><td>Tetracyclines</td><td>Mild/moderate skin infections ONLY</td><td>NOT for severe MRSA; Category D</td></tr>
+        <tr><td><div class="drug-name">Clindamycin</div></td><td>Lincosamide</td><td>Community-acquired (non-multiresistant MRSA) only</td><td>Category B; check D-zone test for inducible resistance</td></tr>
+        <tr><td><div class="drug-name">Cotrimoxazole</div></td><td>Sulfonamide</td><td>Mild community-acquired MRSA skin infections</td><td>Category D; many drug interactions</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <br>
+
+  <!-- Bacteria-specific disease tables -->
+  <div>
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13e · Disease/Organism–Specific Antibiotic Choice</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Organism / Condition</th>
+          <th>First-Line Agent(s)</th>
+          <th>Alternative(s)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Syphilis (Treponema pallidum)</td><td>Benzathine Penicillin G 2.4 MU IM single dose</td><td>Erythromycin or Doxycycline (in penicillin allergy)</td><td>Primary &amp; secondary syphilis: single dose sufficient</td></tr>
+        <tr><td>Gonorrhea (Neisseria gonorrhoeae)</td><td>Ceftriaxone IM</td><td>Azithromycin (single dose)</td><td>Often given together for dual coverage (includes Chlamydia)</td></tr>
+        <tr><td>Chlamydia trachomatis</td><td>Azithromycin 1g single dose OR Doxycycline 100 mg bid × 7 days</td><td>Erythromycin</td><td>Similar to gonorrhea clinically; risk of infertility if untreated</td></tr>
+        <tr><td>Meningitis — Neonates (&lt;1 month)</td><td>Ampicillin + Gentamycin</td><td>—</td><td>Ceftriaxone CONTRAINDICATED in &lt;1 month (kernicterus)</td></tr>
+        <tr><td>Meningitis — Children/Adults (&gt;1 month)</td><td>Ceftriaxone IV</td><td>Cefotaxime IV, Penicillin G</td><td>Inflamed meninges allow drug penetration</td></tr>
+        <tr><td>Surgical Prophylaxis</td><td>Cephazoline IV/IM (Zinol®)</td><td>Clindamycin (penicillin-allergic)</td><td>Given before incision; additional dose if surgery &gt;3h</td></tr>
+        <tr><td>Rheumatic Fever Prophylaxis</td><td>Benzathine Penicillin G IM q3–4 weeks</td><td>Penicillin V oral</td><td>Long-term secondary prevention</td></tr>
+        <tr><td>H. pylori — 1st Line (Triple Therapy)</td><td>Amoxicillin + Clarithromycin + PPI</td><td>—</td><td>Standard 14-day course</td></tr>
+        <tr><td>H. pylori — 2nd Line (Quadruple Therapy)</td><td>Bismuth subsalicylate + Tetracycline + Metronidazole + PPI</td><td>—</td><td>14 days; for failures or pen/macrolide allergy</td></tr>
+        <tr><td>C. difficile (Pseudomembranous Colitis)</td><td>Vancomycin oral 125–500 mg q6h × 10–14 days</td><td>Metronidazole (mild cases)</td><td>Clindamycin CAUSES this condition; vancomycin TREATS it</td></tr>
+        <tr><td>Anthrax (Bacillus anthracis)</td><td>Ciprofloxacin</td><td>Doxycycline</td><td>DOC = Ciprofloxacin</td></tr>
+        <tr><td>Brucellosis (Brucella)</td><td>Doxycycline + Rifampicin</td><td>Doxycycline + Gentamycin</td><td>6-week course minimum</td></tr>
+        <tr><td>Cholera (Vibrio cholerae)</td><td>Doxycycline 300 mg single dose</td><td>Azithromycin 2g single dose</td><td>Single dose effective; rehydration most important</td></tr>
+        <tr><td>Typhoid (Salmonella typhi)</td><td>Ciprofloxacin</td><td>Ceftriaxone, Azithromycin</td><td>Fluoroquinolone resistance increasing in some regions</td></tr>
+        <tr><td>PCP (Pneumocystis jirovecii) Pneumonia</td><td>Cotrimoxazole (TMP 15–20 mg/kg/day) × 21 days</td><td>Dapsone + Trimethoprim; Pentamidine</td><td>Prophylaxis when CD4 &lt;200 cells/mm³</td></tr>
+        <tr><td>Toxoplasmosis (Toxoplasma gondii)</td><td>Sulfadiazine + Pyrimethamine + Leucovorin</td><td>Spiramycin (pregnancy)</td><td>Spiramycin preferred in pregnancy as it doesn't cross placenta well</td></tr>
+        <tr><td>Tuberculosis (M. tuberculosis)</td><td>Isoniazid + Rifampicin + Pyrazinamide + Ethambutol</td><td>Streptomycin as alternative to Ethambutol</td><td>6-month standard regimen; 2-month intensive + 4-month continuation</td></tr>
+        <tr><td>Leprosy (M. leprae)</td><td>Dapsone + Rifampicin (+ Clofazimine for multibacillary)</td><td>—</td><td>Multi-drug therapy (WHO protocol)</td></tr>
+        <tr><td>Dental / Periodontal Infections</td><td>Spiramycin + Metronidazole (Spirazole Forte®)</td><td>Clindamycin (Category B)</td><td>Anaerobic coverage essential</td></tr>
+        <tr><td>Osteomyelitis</td><td>Ciprofloxacin (Gm–ve); Vancomycin (MRSA); Ceftriaxone (Strep)</td><td>Cephazoline (MSSA)</td><td>Ciprofloxacin concentrates well in bone</td></tr>
+        <tr><td>Uncomplicated UTI</td><td>Cotrimoxazole DS q12h × 3 days OR Nitrofurantoin × 5–7 days</td><td>Ciprofloxacin × 3 days</td><td>Avoid cotrimox if local resistance &gt;20%</td></tr>
+        <tr><td>Prostatitis</td><td>Cotrimoxazole DS × 4–6 weeks OR Ciprofloxacin × 4–6 weeks</td><td>Levofloxacin</td><td>Trimethoprim concentrates in prostate (acidic environment)</td></tr>
+        <tr><td>Hepatic Encephalopathy (prophylaxis)</td><td>Neomycin oral (reduces ammonia-producing flora)</td><td>Rifaximin</td><td>Non-absorbed; acts locally in gut</td></tr>
+        <tr><td>Burns (topical colonization prevention)</td><td>Silver Sulfadiazine (Dermazin®)</td><td>Mafenide</td><td>Silver sulfadiazine less painful, preferred</td></tr>
+        <tr><td>Traveler's Diarrhea (E. coli)</td><td>Ciprofloxacin</td><td>Azithromycin</td><td>Short course (1–3 days)</td></tr>
+        <tr><td>Lyme Disease (Borrelia burgdorferi)</td><td>Doxycycline</td><td>Amoxicillin, Cefuroxime</td><td>Single dose Doxycycline can be curative in early disease</td></tr>
+        <tr><td>Endocarditis (Enterococcus)</td><td>Ampicillin/Vancomycin + Gentamycin (synergy)</td><td>—</td><td>Beta-lactam/glycopeptide breaks Gm+ve cell wall → aminoglycoside penetrates</td></tr>
+        <tr><td>Intra-abdominal Infections</td><td>Metronidazole + 3rd/4th gen Cephalosporin OR Piperacillin/Tazobactam</td><td>Carbapenems (severe), Tigecycline</td><td>Must cover anaerobes + Gram-negatives</td></tr>
+        <tr><td>VRE Infections</td><td>Linezolid or Daptomycin</td><td>Tigecycline</td><td>Vancomycin-Resistant Enterococci</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <br>
+
+  <!-- Neonates / Pediatric Restrictions -->
+  <div>
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13f · Neonates &amp; Pediatric Restrictions</div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Drug / Class</th>
+          <th>Restriction</th>
+          <th>Reason</th>
+          <th>Alternative</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tetracyclines (all)</td><td>CONTRAINDICATED &lt;8 years</td><td>Permanent teeth discoloration; suppresses bone growth</td><td>Azithromycin, Beta-lactams</td></tr>
+        <tr><td>Quinolones</td><td>CONTRAINDICATED in children</td><td>Cartilage/joint toxicity in growing children</td><td>Beta-lactams, Trimethoprim</td></tr>
+        <tr><td>Ceftriaxone</td><td>AVOID in neonates &lt;1 month</td><td>Displaces bilirubin from albumin → kernicterus + biliary sludge</td><td>Cefotaxime, Ampicillin + Gentamycin</td></tr>
+        <tr><td>Chloramphenicol</td><td>AVOID in neonates</td><td>Grey Baby Syndrome (cardiovascular collapse, cyanosis)</td><td>Ampicillin, Cephalosporins</td></tr>
+        <tr><td>Sulfonamides</td><td>CONTRAINDICATED &lt;2 months</td><td>Kernicterus (bilirubin displacement)</td><td>Ampicillin</td></tr>
+        <tr><td>Aminoglycosides</td><td>Use with caution in neonates</td><td>Nephrotoxicity, ototoxicity (more vulnerable)</td><td>Beta-lactams if possible</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <br>
+
+  <!-- Drug Oral:IV Ratios -->
+  <div>
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13g · Oral-to-IV Equivalence (1:1 Ratio — Easy Step-Down)</div>
+  <div class="table-wrap" style="min-width:0">
+    <table style="min-width:400px">
+      <thead>
+        <tr>
+          <th>Drug</th>
+          <th>Oral : IV Ratio</th>
+          <th>Practical Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><div class="drug-name">Doxycycline</div></td><td>1 : 1</td><td>100 mg IV = 100 mg oral — easy step-down</td></tr>
+        <tr><td><div class="drug-name">Linezolid</div></td><td>1 : 1</td><td>600 mg IV = 600 mg oral q12h</td></tr>
+        <tr><td><div class="drug-name">Cotrimoxazole</div></td><td>1 : 1</td><td>Dose the same whether IV or oral</td></tr>
+        <tr><td><div class="drug-name">Clindamycin</div></td><td>1 : 2</td><td>Oral dose = HALF of IV dose (GI side effects limit oral dose)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <br>
+
+  <!-- QT Prolongation Summary -->
+  <div>
+  <div style="margin-bottom:10px; font-weight:700; font-size:13px; color:#1a2540;">13h · Antibiotics Causing QT Prolongation (Cardiac Risk)</div>
+  <div class="table-wrap" style="min-width:0">
+    <table style="min-width:400px">
+      <thead>
+        <tr>
+          <th>Drug Class</th>
+          <th>Key Members</th>
+          <th>Caution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Macrolides</td><td>All (Azithromycin, Clarithromycin, Erythromycin)</td><td>Avoid with other QT-prolonging drugs, hypokalemia, bradycardia, heart failure</td></tr>
+        <tr><td>Quinolones</td><td>All (especially Moxifloxacin, Sparfloxacin)</td><td>Same precautions; avoid with class IA/III antiarrhythmics</td></tr>
+        <tr><td>Sulfonamides</td><td>Cotrimoxazole, sulfa drugs</td><td>Monitor ECG in high-risk patients</td></tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Microbiology Department Reference Sheet</strong> · Compiled from "شرح المضادات الحيوية بطريقة عبقرية" by Mahmoud Ibrahim · All information is for professional/educational use only · Clinical decisions should always be based on current guidelines, culture/sensitivity results, and individual patient factors · Last compiled: 2025</p>
+</footer>
+
+</body>
+</html>
